@@ -1,4 +1,8 @@
 @extends("_partials.template")
+    @section("title","Login Page")
+    @push("styles")
+        <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+    @endpush
     @section("content")
         <div id="loader-wrapper">
             <div id="loader"></div>

@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function (){
-    return redirect()->route('login');
-});
+    return view('_partials.template-admin');
+})->name('index');
 
 Route::get('login', [
     'as' => 'login',
@@ -29,3 +29,5 @@ Route::get('register', [
     'as' => 'register',
     'uses' => 'Auth\RegisterController@showRegistrationForm'
 ]);
+
+Route::resource('products',ProductController::class);

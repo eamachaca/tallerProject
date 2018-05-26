@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login Page | Materialize - Material Design Admin Template</title>
+    <title>@yield("title","Proyecto Taller de Grado")</title>
 
     <!-- CORE CSS-->
 
@@ -10,7 +10,6 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- Custome CSS-->
     <link href="css/custom/custom-style.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
 
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="js/plugins/prism/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
