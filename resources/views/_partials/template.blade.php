@@ -5,16 +5,16 @@
     <title>@yield("title","Proyecto Taller de Grado")</title>
 
     <!-- CORE CSS-->
-
-    <link href="css/materialize/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    {!! Html::style('css/materialize/materialize.css') !!}
+    {!! Html::style('css/style.css') !!}
     <!-- Custome CSS-->
-    <link href="css/custom/custom-style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    {!! Html::style('css/custom/custom-style.css') !!}
 
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-    <link href="js/plugins/prism/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="js/plugins/animate-css/animate.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+    {!! Html::style('js/plugins/prism/prism.css') !!}
+    {!! Html::style('js/plugins/animate-css/animate.css') !!}
+    {!! Html::style('js/plugins/perfect-scrollbar/perfect-scrollbar.css') !!}
+
     @stack('styles')
 
 </head>
@@ -25,20 +25,20 @@
 	================================================ -->
 
     <!-- jQuery Library -->
-    <script type="text/javascript" src="js/jquery/jquery.js"></script>
+    {!! Html::script('js/jquery/jquery.js') !!}
+
     <!--materialize js-->
-    <script type="text/javascript" src="js/materialize/materialize.js"></script>
+    {!! Html::script('js/materialize/materialize.js') !!}
     <!--prism-->
-    <script type="text/javascript" src="js/plugins/prism/prism.js"></script>
+    {!! Html::script('js/plugins/prism/prism.js') !!}
     <!--scrollbar-->
-    <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    {!! Html::script('js/plugins/perfect-scrollbar/perfect-scrollbar.min.js') !!}
 
     @stack('scripts')
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
+    {!! Html::script('js/plugins.js') !!}
     <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
-
+    {!! Html::script('js/custom-script.js') !!}
     <script>
         $(document).ready(function() {
             @stack('ready')

@@ -1,43 +1,23 @@
 @extends("_partials.template-admin")
-@section("sub-title","Ver Productos")
+@section("sub-title","Crear Productos")
 
 @section("admin-content")
 
     <!-- Form with placeholder -->
     <div class="col s12">
         <div class="card-panel">
-            <h4 class="header2">Form with placeholder</h4>
             <div class="row">
-                <form class="col s12">
+                {!! Form::open(['clas'=>'col s12','url' => route('products.store'), 'method' => 'post']) !!}
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="John Doe" id="name2" type="text">
-                            <label for="first_name">Name</label>
+                            {!! Form::text('name',$__env->yieldContent('name',null),['placeholder'=>'Nombre del Producto']) !!}
+                            {!! Form::label('name', 'Nombre'); !!}
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="john@domainname.com" id="email2" type="email">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input placeholder="YourPassword" id="password2" type="password">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea placeholder="Oh WoW! Let me check this one too." id="message2" class="materialize-textarea"></textarea>
-                            <label for="message">Message</label>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
-                                    <i class="mdi-content-send right"></i>
-                                </button>
-                            </div>
+                            {!!  Form::number( 'price', $__env->yieldContent('price',null), ['placeholder'=>'Precio del Producto','id' => 'price', 'step'=>'any', 'min' => 1, 'max' => 9999, 'required' => 'required']) !!}
+                            {!! Form::label('price', 'Precio'); !!}
                         </div>
                     </div>
                 </form>

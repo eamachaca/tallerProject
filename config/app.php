@@ -162,6 +162,7 @@ return [
 
         //Aggregate for ME: DeIt0
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
     ],
 
     /*
@@ -213,6 +214,8 @@ return [
 
         //Aggregate for ME: DeIt0
         'HTML' => Collective\Html\HtmlFacade::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
     ],
 
 ];
