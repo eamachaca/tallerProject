@@ -67,7 +67,7 @@ class ProductDataTable extends DataTable
             'price'=> ['title'=>'Precio'],
             'quantity'=> ['title'=>'Cantidad'],
             'type_product_id'=> ['title'=>'Tipo De Producto'],
-            'action'=>['title'=>'Acciones']
+            'action'=>['title'=>'Acciones','exportable' => false]
         ];
     }
 

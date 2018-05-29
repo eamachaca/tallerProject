@@ -130,7 +130,7 @@
                                         </li>
                                         <li><a href="{{route('type-products.index')}}"><i class="lighten-3 material-icons left">collections_bookmark</i>Tipo Productos</a>
                                         </li>
-                                        <li><a href="{{route('type-products.index')}}"><i class="lighten-3 material-icons left">queue</i>Pedidos</a>
+                                        <li><a href="{{route('orders.index')}}"><i class="lighten-3 material-icons left">queue</i>Pedidos</a>
                                         </li>
                                     </ul>
                                 </div>

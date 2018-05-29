@@ -14,9 +14,9 @@ class ProductSeeder extends Seeder
     {
         $faker = Faker::create();
         for ($i=0;$i<70;$i++) {
-            DB::table('products')->insert([
+            \App\Product::create([
                 'name' => $faker->country,
-                'price'=>$faker->randomFloat(null,0,20),
+                'price'=>$faker->randomFloat(2,2,50),
                 'type_product_id'=>\App\TypeProduct::all()->random()->id
             ]);
         }

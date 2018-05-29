@@ -14,7 +14,7 @@ class TypeProductSeeder extends Seeder
     {
         $faker = Faker::create();
         for ($i=0;$i<20;$i++) {
-            DB::table('type_products')->insert([
+            \App\TypeProduct::create([
                 'name' => $faker->name,
                 'description' => $faker->text
             ]);

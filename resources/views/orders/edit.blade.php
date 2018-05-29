@@ -1,5 +1,5 @@
 @extends('type-products.create')
-@section('sub-title','Editar Producto')
+@section('sub-title','Editar Pedido')
 
 @section('form',route('type-products.update',$typeProduct->id))
 @section('method','put')

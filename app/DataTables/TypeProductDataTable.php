@@ -14,9 +14,12 @@ class TypeProductDataTable extends DataTable
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
-    public function dataTable($query)
+    public function dataTable( $query)
     {
         return datatables($query)
+            ->editColumn('id',function($row) use ($query) {
+                return $query->get()->search($row)+1;
+            })
             ->editColumn('action',function($row) {
                 return '<a href="'.route('type-products.edit',$row->id).'" class="left waves-effect waves-light btn-small"><i class="lighten-3 material-icons">edit</i></a>'
                 .\Form::open(["url" => route('type-products.destroy',$row->id),"class"=>"left"]).
@@ -58,10 +61,10 @@ class TypeProductDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id'=> ['title'=>'ID'],
+            'id'=> ['title'=>'Número'],
             'name'=> ['title'=>'Nombre'],
             'description'=> ['title'=>'Descripcion'],
-            'action'=>['title'=>'Acciones']
+            'action'=>['title'=>'Acciones','exportable' => false]
         ];
     }
 
@@ -72,6 +75,6 @@ class TypeProductDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Product_' . date('YmdHis');
+        return 'TypeProduct_' . date('YmdHis');
     }
 }

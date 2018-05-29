@@ -1,5 +1,5 @@
 @extends("_partials.template-admin")
-@section("sub-title","Crear Tipo Productos")
+@section("sub-title","Crear Productos")
 
 @section("admin-content")
 

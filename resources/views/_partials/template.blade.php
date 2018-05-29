@@ -42,6 +42,9 @@
     <script>
         $(document).ready(function() {
             @stack('ready')
+            if(('table').length!=0){
+                $('table').css('width','100%');
+            }
         });
     </script>
 </body>

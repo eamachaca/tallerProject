@@ -31,6 +31,7 @@ Route::get('register', [
 ]);
 
 Route::resource('products',ProductController::class)->except('show');
+Route::resource('orders',OrderController::class);
 Route::resource('type-products',TypeProductController::class)->except('show');
 
 
