@@ -30,4 +30,16 @@ Route::get('register', [
     'uses' => 'Auth\RegisterController@showRegistrationForm'
 ]);
 
-Route::resource('products',ProductController::class);
+Route::resource('products',ProductController::class)->except('show');
+Route::resource('type-products',TypeProductController::class)->except('show');
+
+
+Route::get('products/{product}/add', [
+    'as' => 'products.add',
+    'uses' => 'ProductController@add'
+]);
+
+Route::post('products/{product}/add', [
+    'as' => 'products.stock',
+    'uses' => 'ProductController@stock'
+]);

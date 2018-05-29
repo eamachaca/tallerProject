@@ -13,9 +13,13 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        DB::table('products')->insert([
-            'name' => $faker->name,
-            'price' => $faker->randomFloat(2,0)
-        ]);
+        for ($i=0;$i<70;$i++) {
+            DB::table('products')->insert([
+                'name' => $faker->country,
+                'price'=>$faker->randomFloat(null,0,20),
+                'type_product_id'=>\App\TypeProduct::all()->random()->id
+            ]);
+        }
+
     }
 }

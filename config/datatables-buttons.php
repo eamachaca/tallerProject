@@ -58,12 +58,12 @@ return [
      */
     'parameters' => [
         'dom'     => 'Brtip',
-        'order'   => [[0, 'desc']],
+        'order'   => [[0, 'asc']],
         'buttons' => [
             'export',
             'print',
-            'reset',
-            'reload',
+//            'reset',
+//            'reload',
         ],
     ],
 ];

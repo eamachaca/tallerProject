@@ -1,24 +1,6 @@
 @extends("_partials.template-admin")
 @section("sub-title","Crear Productos")
 
-@push('scripts')
-    {!! Html::script('js/jquery.nice-number.js') !!}
-    <script>
-        $('input[type="number"]').niceNumber({autoSizeBuffer:3});
-        $('input').keypress(
-            function(event){
-                if (event.which == '13') {
-                    event.preventDefault();
-                    $('input').finish();
-                }
-
-
-            });
-    </script>
-@endpush
-@push('styles')
-    {!! Html::style('css/jquery.nice-number.css') !!}
-@endpush
 @section("admin-content")
 
     <!-- Form with placeholder -->
@@ -34,20 +16,14 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        {!! Form::select('type_product_id',$typeProducts,$__env->yieldContent('selected',null),['class' => 'form-control','required'=>'required  ']) !!}
-                        {!! Form::label('type_product_id', 'Tipo de Producto'); !!}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-group-lg col s12">
+                        {!! Form::textarea('description',$__env->yieldContent('description',null),['class'=>'materialize-textarea','placeholder'=>'Escriba una Descripcion del Tipo de Producto','length'=>200]) !!}
                         {!! Form::label('description', 'Descripción'); !!}
-                        {!! Form::number('price',$__env->yieldContent('price','0.00'),['id'=>'quantity','min'=>'0','step'=>'0.5','data-decimals'=>'2']) !!}
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col push-s4">
                         {!! Form::button('Save', ['type'=>'submit','class' => 'btn waves-effect waves-light']) !!}
-                        {!! HTML::link(route('products.index'), 'Cancel', ['class' => 'btn waves-effect waves-light']) !!}
+                        {!! HTML::link(route('type-products.index'), 'Cancel', ['class' => 'btn waves-effect waves-light']) !!}
                     </div>
                 </div>
                 {!! Form::close() !!}

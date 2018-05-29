@@ -2,6 +2,7 @@
 
 @push('styles')
     {!! Html::style('js/plugins/perfect-scrollbar/perfect-scrollbar.css') !!}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -125,9 +126,11 @@
                             <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-module"></i> Orders</a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="{{route('products.index')}}">Products</a>
+                                        <li><a href="{{route('products.index')}}">Productos<i class="lighten-3 material-icons left">bookmark</i></a>
                                         </li>
-                                        <li><a href="{{route('products.index')}}">Horizontal Menu</a>
+                                        <li><a href="{{route('type-products.index')}}"><i class="lighten-3 material-icons left">collections_bookmark</i>Tipo Productos</a>
+                                        </li>
+                                        <li><a href="{{route('type-products.index')}}"><i class="lighten-3 material-icons left">queue</i>Pedidos</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -165,7 +168,7 @@
                 <!--start container-->
                 <div class="container">
                     <div class="section">
-                        <p class="caption">@yield("admin-content","Contenido")</p>
+                        @yield("admin-content","Contenido")
                     </div>
 
                     <!-- Floating Action Button -->
@@ -204,6 +207,16 @@
     </footer>
 @endsection
 @push('scripts')
+
+
+    <script>
+        function isValid(a){
+            if(confirm("@yield('valid','¿Eliminar registro?')")){
+                $(a.parentNode).submit();
+            }
+            return false;
+        }
+    </script>
     <!--scrollbar-->
     {!! Html::script('js/plugins/perfect-scrollbar/perfect-scrollbar.min.js') !!}
 @endpush
