@@ -24,6 +24,9 @@ class OrderDataTable extends DataTable
                     '<a role="submit" onClick="return isValid(this)" class="waves-effect waves-light btn-small"><i class="lighten-3 material-icons">delete</i></a>'.
                     \Form::close();
             })
+            ->editColumn('name',function ($row){
+                return  'Pedido#'.$row->id;
+            })
             ->editColumn('ubication',function($row) {
                 return '<a class="left waves-effect waves-light btn-small" target="_blank" href="http://maps.google.com/maps?q='.$row->lat.','.$row->lng.'&amp;t=m">
                                     <i class="lighten-3 material-icons">streetview</i></a>';
@@ -67,6 +70,7 @@ class OrderDataTable extends DataTable
     {
         return [
             'id'=> ['title'=>'ID'],
+            'name'=>['title'=>'Número de Pedido'],
             'client_name'=> ['title'=>'Nombre del Cliente'],
             'products'=> ['title'=>'Cantidad de Productos'],
             'total_price'=> ['title'=>'Precio Total'],

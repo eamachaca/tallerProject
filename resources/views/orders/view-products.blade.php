@@ -11,5 +11,12 @@
     {!! Html::style('css/dataTables/buttons.dataTables.css') !!}
 @endpush
 @section("admin-content")
-    {!! $dataTable->table() !!}
+    <div class="row">
+        {!! $dataTable->table() !!}
+    </div>
+    <div class="row">
+        <div class="input-field col push-s5">
+            {!! HTML::link(route('orders.index'), 'Volver', ['class' => 'btn waves-effect waves-light']) !!}
+        </div>
+    </div>
 @endsection

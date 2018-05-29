@@ -1,7 +1,7 @@
-@extends('type-products.create')
+@extends('orders.create')
 @section('sub-title','Editar Pedido')
 
-@section('form',route('type-products.update',$typeProduct->id))
+@section('form',route('orders.update',$order->id))
 @section('method','put')
-@section('name',$typeProduct->name)
-@section('description',$typeProduct->description)
+@section('name',$order->name)
+@section('description',$order->description)
