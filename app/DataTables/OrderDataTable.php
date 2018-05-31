@@ -70,12 +70,12 @@ class OrderDataTable extends DataTable
     {
         return [
             'id'=> ['title'=>'ID'],
-            'name'=>['title'=>'Número de Pedido'],
+            'name'=>['title'=>'Número de Pedido','orderable' => false, 'sortable' => false],
             'client_name'=> ['title'=>'Nombre del Cliente'],
-            'products'=> ['title'=>'Cantidad de Productos'],
+            'products'=> ['title'=>'Cantidad de Productos','searchable'=>false,'orderable' => false,'searchable'=>false, 'sortable' => false],
             'total_price'=> ['title'=>'Precio Total'],
-            'ubication'=>['title'=>'Ubicacion','exportable' => false],
-            'action'=>['title'=>'Acciones','exportable' => false]
+            'ubication'=>['title'=>'Ubicacion', 'orderable' => false, 'searchable'=>false, 'sortable' => false, 'printable' => false, 'exportable' => false],
+            'action'=>['title'=>'Acciones','searchable'=>false,'orderable' => false, 'sortable' => false, 'printable' => false, 'exportable' => false]
         ];
     }
 

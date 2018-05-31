@@ -171,12 +171,13 @@
         className: 'buttons-print',
 
         text: function (dt) {
-            return  '<i class="fa fa-print"></i> ' + dt.i18n('buttons.print', 'Print');
+            return  '<i class="fa fa-print"></i> ' + dt.i18n('buttons.print', 'Imprimir');
         },
 
         action: function (e, dt, button, config) {
             var url = _buildUrl(dt, 'print');
-            window.location = url;
+            window.open(url, '_blank').focus()
+            //window.location = url;
         }
     };
 

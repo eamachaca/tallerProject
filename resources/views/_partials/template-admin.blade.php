@@ -194,7 +194,7 @@
 
     </div>
     <!-- END MAIN -->
-    <footer class="page-footer footer-fixed" style="z-index: 2;">
+    <footer class="page-footer footer-fixed" style="z-index: 501;">
         <div class="footer-copyright">
             <div class="container">
           <span>Copyright ©
