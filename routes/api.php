@@ -17,6 +17,7 @@ Route::group(['prefix' => 'clients'], function() {
     Route::post('register', 'API\AuthAPIController@registerClient');
     Route::group(['middleware' => 'auth:clients'], function(){
         Route::post('details', 'API\UserController@details');
+        Route::get('products', 'API\ClientApiController@showProducts');
     });
 });
 

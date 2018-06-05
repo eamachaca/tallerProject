@@ -17,7 +17,8 @@ class ProductSeeder extends Seeder
             \App\Product::create([
                 'name' => $faker->country,
                 'price'=>$faker->randomFloat(2,2,50),
-                'type_product_id'=>\App\TypeProduct::all()->random()->id
+                'type_product_id'=>\App\TypeProduct::all()->random()->id,
+                'quantity'=>$faker->numberBetween(1,100),
             ]);
         }
 

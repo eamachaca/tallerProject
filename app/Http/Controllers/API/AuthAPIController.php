@@ -17,15 +17,15 @@ class AuthAPIController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function login($request,$class){
-        //try {
+        try {
             $user = $class::where('username', $request->get('username'))->first();
             if (!$user || !Hash::check($request->get('password'), $user->password)) {
                 throw new \Exception();
             }
 
             $success['token'] = $user->createToken('FamiUni',[ str_after(strtolower($class).'s','\\') ])->accessToken;
-            return response()->json(['success' => $success,'tokens'=>$user->tokens], Response::HTTP_OK);
-        //}catch (\Exception $e){}
+            return response()->json(['success' => $success], Response::HTTP_OK);
+        }catch (\Exception $e){}
         return response()->json(['error'=>'Datos Incorrectos'], Response::HTTP_CONFLICT);
 
     }

@@ -20,11 +20,12 @@ class CreateDistributorsTable extends Migration
             $table->string('password');
             $table->decimal('last_lat',12,8)->nullable();
             $table->decimal('last_lng',12,8)->nullable();
-            $table->integer('zone_id')->unsigned()->nullable(true);
+            $table->integer('zone_id')->unsigned()->nullable(true)->unique();;
             $table->foreign('zone_id')
                 ->references('id')
                 ->on('zones')
                 ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
