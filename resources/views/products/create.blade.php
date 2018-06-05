@@ -25,7 +25,7 @@
     <div class="col s12">
         <div class="card-panel">
             <div class="row">
-                {!! Form::open(['clas'=>'col s12','url' => $__env->yieldContent('form',route('type-products.store')), 'method' => $__env->yieldContent('method','post')]) !!}
+                {!! Form::open(['clas'=>'col s12','url' => $__env->yieldContent('form',route('products.store')), 'method' => $__env->yieldContent('method','post')]) !!}
                 <div class="row">
                     <div class="input-field col s12">
                         {!! Form::text('name',$__env->yieldContent('name',null),['placeholder'=>'Nombre del Producto']) !!}
@@ -40,7 +40,7 @@
                 </div>
                 <div class="row">
                     <div class="input-group-lg col s12">
-                        {!! Form::label('description', 'Descripción'); !!}
+                        {!! Form::label('price', 'Precio'); !!}
                         {!! Form::number('price',$__env->yieldContent('price','0.00'),['id'=>'quantity','min'=>'0','step'=>'0.5','data-decimals'=>'2']) !!}
                     </div>
                 </div>

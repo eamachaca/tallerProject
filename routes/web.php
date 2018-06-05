@@ -25,10 +25,7 @@ Route::post('login', [
     'uses' => 'Auth\LoginController@login'
 ]);
 
-Route::get('register', [
-    'as' => 'register',
-    'uses' => 'Auth\RegisterController@showRegistrationForm'
-]);
+Route::auth();
 
 Route::resource('products',ProductController::class)->except('show');
 Route::resource('orders',OrderController::class);

@@ -17,13 +17,26 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('client_name',50);
             $table->integer('client_phone')->unsigned();
+            $table->string('address');
             $table->float('lat',11,8);
             $table->float('lng',11,8);
             $table->decimal('total_price');
-            $table->integer('user_id')->unsigned()->nullable(true);//->default(null);
-            $table->foreign('user_id')
+            $table->integer('client_id')->unsigned()->nullable(true);//->default(null);
+            $table->foreign('client_id')
                 ->references('id')
-                ->on('users')
+                ->on('clients')
+                ->onDelete('cascade');
+            $table->date('delivery_date');
+            $table->integer('distributor_id')->unsigned()->nullable(true);
+            $table->foreign('distributor_id')
+                ->references('id')
+                ->on('distributors')
+                ->onDelete('cascade');
+            $table->smallInteger('state')->default(0);
+            $table->integer('zone_id')->unsigned()->nullable(true);
+            $table->foreign('zone_id')
+                ->references('id')
+                ->on('zones')
                 ->onDelete('cascade');
             $table->timestamps();
         });

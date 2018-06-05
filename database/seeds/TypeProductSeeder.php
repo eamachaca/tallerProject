@@ -12,7 +12,7 @@ class TypeProductSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker=Faker::create('es-MX');
         for ($i=0;$i<20;$i++) {
             \App\TypeProduct::create([
                 'name' => $faker->name,

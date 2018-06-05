@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderProductTable extends Migration
+class CreateAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,21 @@ class CreateOrderProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_product', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quantity');
-            $table->decimal('partial_price');
-            $table->integer('product_id')->unsigned();
-            $table->integer('order_id')->unsigned();
-            $table->foreign('product_id')
+            $table->string('name');
+            $table->decimal('lat',12,8);
+            $table->decimal('lng',12,8);
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')
                 ->references('id')
-                ->on('products')
+                ->on('clients')
                 ->onDelete('cascade');
-            $table->foreign('order_id')
+            $table->integer('zone_id')->unsigned();
+            $table->foreign('zone_id')
                 ->references('id')
-                ->on('orders')
+                ->on('zones')
                 ->onDelete('cascade');
-            $table->unique(['product_id','order_id']);
             $table->timestamps();
         });
     }
@@ -39,6 +39,6 @@ class CreateOrderProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_product');
+        Schema::dropIfExists('addresses');
     }
 }
