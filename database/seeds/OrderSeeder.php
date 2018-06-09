@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
         $lat=-17.7868414;
         $lng=-63.1967916;
         $date=\Carbon\Carbon::today();
-        for ($i=0;$i<80;$i++) {
+        for ($i=0;$i<800;$i++) {
             \App\Order::create([
                 'client_name' => $faker->name,
                 'client_phone' => 70000000+$faker->randomNumber(7,true),

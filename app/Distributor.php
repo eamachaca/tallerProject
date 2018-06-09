@@ -16,4 +16,11 @@ class Distributor extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','username',
     ];
+    /**
+     * Get the zone that owns the distributor.
+     */
+    public function zone()
+    {
+        return $this->belongsTo(Zone::class);
+    }
 }

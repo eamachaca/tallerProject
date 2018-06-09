@@ -132,6 +132,8 @@
                                         </li>
                                         <li><a href="{{route('orders.index')}}"><i class="lighten-3 material-icons left">queue</i>Pedidos</a>
                                         </li>
+                                        <li><a href="{{route('zones.index')}}"><i class="lighten-3 material-icons left">rounded_corner</i>Zonas</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -194,7 +196,7 @@
 
     </div>
     <!-- END MAIN -->
-    <footer class="page-footer footer-fixed" style="z-index: 501;">
+    <footer class="page-footer footer-fixed" style="z-index: 851;">
         <div class="footer-copyright">
             <div class="container">
           <span>Copyright ©

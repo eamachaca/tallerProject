@@ -17,14 +17,14 @@ Route::group(['prefix' => 'clients'], function() {
     Route::post('register', 'API\AuthAPIController@registerClient');
     Route::group(['middleware' => 'auth:clients'], function(){
         Route::post('details', 'API\UserController@details');
-        Route::get('products', 'API\ClientApiController@showProducts');
     });
 });
 
 Route::group(['prefix' => 'dealers'], function() {
     Route::post('login', 'API\AuthAPIController@loginDistributor');
-
+    Route::post('routes', 'API\ClientApiController@getRoute');
     Route::group(['middleware' => 'auth:dealers'], function(){
         Route::post('details', 'API\UserController@details');
+        Route::get('products', 'API\ClientApiController@showProducts');
     });
 });

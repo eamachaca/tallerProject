@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\TypeProduct;
+use App\Zone;
 use App\User;
 use Yajra\DataTables\Services\DataTable;
 
-class TypeProductDataTable extends DataTable
+class ZoneDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,11 +21,13 @@ class TypeProductDataTable extends DataTable
                 return $query->get()->search($row)+1;
             })
             ->editColumn('action',function($row) {
-                return '<a href="'.route('type-products.edit',$row->id).'" class="left waves-effect waves-light btn-small"><i class="lighten-3 material-icons">edit</i></a>'
-                .\Form::open(["url" => route('type-products.destroy',$row->id),"class"=>"left"]).
+                return '<a href="'.route('zones.edit',$row->id).'" class="left waves-effect waves-light btn-small"><i class="lighten-3 material-icons">edit</i></a>'
+                .\Form::open(["url" => route('zones.destroy',$row->id),"class"=>"left"]).
                     '<input type="hidden" name="_method" value="DELETE">'.
                     '<a role="submit" onClick="return isValid(this)" class="waves-effect waves-light btn-small"><i class="lighten-3 material-icons">delete</i></a>'.
                     \Form::close();
+            })->editColumn('orders',function($row){
+                return $row->orders->count();
             })->rawColumns(['action']);
     }
 
@@ -37,7 +39,7 @@ class TypeProductDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return TypeProduct::query();
+        return Zone::query();
     }
 
     /**
@@ -63,7 +65,7 @@ class TypeProductDataTable extends DataTable
         return [
             'id'=> ['title'=>'Número'],
             'name'=> ['title'=>'Nombre'],
-            'description'=> ['title'=>'Descripcion'],
+            'orders' => ['title'=>'Pedidos', 'orderable' => false],
             'action'=>['title'=>'Acciones','searchable'=>false,'orderable' => false, 'sortable' => false, 'printable' => false, 'exportable' => false]
         ];
     }
@@ -75,6 +77,6 @@ class TypeProductDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'TypeProduct_' . date('YmdHis');
+        return 'Zone_' . date('YmdHis');
     }
 }

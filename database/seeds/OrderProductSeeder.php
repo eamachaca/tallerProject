@@ -13,7 +13,7 @@ class OrderProductSeeder extends Seeder
     public function run()
     {
         $faker=Faker::create('es-MX');
-        for ($i=0;$i<600;$i++) {
+        for ($i=0;$i<5000;$i++) {
             try {
                 \App\OrderProduct::create([
                     'product_id' => \App\Product::all()->random()->id,
@@ -22,8 +22,8 @@ class OrderProductSeeder extends Seeder
                     'quantity' => $faker->randomNumber(2, true),
                 ]);
             } catch (\Exception $e) {
-                    $i -= 5;
-                echo '-5';
+                    $i -= 10;
+                echo '-10';
             }
         }
     }

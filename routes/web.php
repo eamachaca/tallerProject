@@ -30,6 +30,7 @@ Route::auth();
 Route::resource('products',ProductController::class)->except('show');
 Route::resource('orders',OrderController::class);
 Route::resource('type-products',TypeProductController::class)->except('show');
+Route::resource('zones',ZoneController::class)->except('show');
 
 
 Route::get('products/{product}/add', [

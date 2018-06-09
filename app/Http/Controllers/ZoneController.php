@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Zone;
 use Illuminate\Http\Request;
+use App\DataTables\ZoneDataTable;
 
 class ZoneController extends Controller
 {
@@ -12,9 +13,9 @@ class ZoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ZoneDataTable $dataTable)
     {
-        //
+        return $dataTable->render('zones.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class ZoneController extends Controller
      */
     public function create()
     {
-        //
+        return view('zones.create');
     }
 
     /**

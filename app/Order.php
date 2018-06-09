@@ -13,4 +13,11 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+    /**
+     * Get the post that owns the comment.
+     */
+    public function zone()
+    {
+        return $this->belongsTo(Zone::class);
+    }
 }

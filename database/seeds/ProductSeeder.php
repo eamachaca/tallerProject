@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $faker=Faker::create('es-MX');
-        for ($i=0;$i<80;$i++) {
+        for ($i=0;$i<800;$i++) {
             \App\Product::create([
                 'name' => $faker->country,
                 'price'=>$faker->randomFloat(2,2,50),
