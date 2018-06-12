@@ -10,13 +10,9 @@ $(function() {
   "use strict";
 
   var window_width = $(window).width();
-
-  /*Preloader*/
-  $(window).on('load',function() {
-      $('body').addClass('loaded');
-  });  
-
   
+  $('body').addClass('loaded');
+
   // Search class for focus
   $('.header-search-input').focus(
   function(){
