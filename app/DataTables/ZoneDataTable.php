@@ -28,7 +28,9 @@ class ZoneDataTable extends DataTable
                     \Form::close();
             })->editColumn('orders',function($row){
                 return $row->orders->count();
-            })->rawColumns(['action']);
+            })->editColumn('color',function($row){
+                return '<div style="width: 5em;height: 2em; background-color:'.$row->color.'"></div>';
+            })->rawColumns(['action','color']);
     }
 
     /**
@@ -65,6 +67,7 @@ class ZoneDataTable extends DataTable
         return [
             'id'=> ['title'=>'Número'],
             'name'=> ['title'=>'Nombre'],
+            'color'=> ['title'=>'Color'],
             'orders' => ['title'=>'Pedidos', 'orderable' => false],
             'action'=>['title'=>'Acciones','searchable'=>false,'orderable' => false, 'sortable' => false, 'printable' => false, 'exportable' => false]
         ];

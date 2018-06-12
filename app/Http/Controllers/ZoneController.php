@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ZoneRequest;
 use App\Zone;
-use Illuminate\Http\Request;
 use App\DataTables\ZoneDataTable;
 
 class ZoneController extends Controller
@@ -34,9 +34,10 @@ class ZoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ZoneRequest $request)
     {
-        //
+        $zone=Zone::create($request->validated());
+        return redirect()->route('zones.index');
     }
 
     /**
@@ -58,7 +59,7 @@ class ZoneController extends Controller
      */
     public function edit(Zone $zone)
     {
-        //
+        return view('zones.edit',['zone'=>$zone]);
     }
 
     /**
@@ -68,9 +69,10 @@ class ZoneController extends Controller
      * @param  \App\Zone  $zone
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Zone $zone)
+    public function update(ZoneRequest $request, Zone $zone)
     {
-        //
+        $zone->update($request->validated());
+        return redirect()->route('zones.index');
     }
 
     /**
@@ -81,6 +83,7 @@ class ZoneController extends Controller
      */
     public function destroy(Zone $zone)
     {
-        //
+        $zone->delete();
+        return redirect()->route('zones.index');
     }
 }

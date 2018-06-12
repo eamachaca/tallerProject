@@ -18,11 +18,12 @@ class ZoneSeeder extends Seeder
         for ($i = 0; $i < 7; $i++) {
             try {
                 \App\Zone::create([
-                    'name' => $faker->streetName,
-                    'geo_json' => array_pop($array)
+                    'name' => $faker->streetAddress,
+                    'geo_json' => array_pop($array),
+                    'color' => $faker->hexColor
                 ]);
             } catch (\Exception$e) {
-                $i -= 5;
+                $i -= 1;
             }
 
         }

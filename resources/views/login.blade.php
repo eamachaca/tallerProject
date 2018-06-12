@@ -60,7 +60,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <p class="margin center medium-small">{{ HTML::linkRoute('register', 'Sign In') }}</p>
+                            <p class="margin center medium-small">{{ HTML::linkRoute('login', 'Sign In') }}</p>
                         </div>
                     </div>
 

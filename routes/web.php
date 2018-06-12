@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function (){
-    return view('_partials.template-admin');
-})->name('index');
 
 Route::get('login', [
     'as' => 'login',
@@ -25,20 +22,24 @@ Route::post('login', [
     'uses' => 'Auth\LoginController@login'
 ]);
 
-Route::auth();
 
-Route::resource('products',ProductController::class)->except('show');
-Route::resource('orders',OrderController::class);
-Route::resource('type-products',TypeProductController::class)->except('show');
-Route::resource('zones',ZoneController::class)->except('show');
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('products',ProductController::class)->except('show');
+    Route::resource('orders',OrderController::class);
+    Route::resource('type-products',TypeProductController::class)->except('show');
+    Route::resource('zones',ZoneController::class)->except('show');
 
+    Route::get('/', function (){
+        return view('_partials.template-admin');
+    })->name('index');
 
-Route::get('products/{product}/add', [
-    'as' => 'products.add',
-    'uses' => 'ProductController@add'
-]);
+    Route::get('products/{product}/add', [
+        'as' => 'products.add',
+        'uses' => 'ProductController@add'
+    ]);
 
-Route::post('products/{product}/add', [
-    'as' => 'products.stock',
-    'uses' => 'ProductController@stock'
-]);
+    Route::post('products/{product}/add', [
+        'as' => 'products.stock',
+        'uses' => 'ProductController@stock'
+    ]);
+});
