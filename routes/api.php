@@ -12,19 +12,55 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['prefix' => 'clients'], function() {
-    Route::post('login', 'API\AuthAPIController@loginClient');
-    Route::post('register', 'API\AuthAPIController@registerClient');
-    Route::group(['middleware' => 'auth:clients'], function(){
-        Route::post('details', 'API\UserController@details');
-    });
-});
 
-Route::group(['prefix' => 'dealers'], function() {
-    Route::post('login', 'API\AuthAPIController@loginDistributor');
-    Route::post('routes', 'API\ClientApiController@getRoute');
-    Route::group(['middleware' => 'auth:dealers'], function(){
-        Route::post('details', 'API\UserController@details');
-        Route::get('products', 'API\ClientApiController@showProducts');
+Route::group(['as' => 'api.','namespace'=>'API'], function() {
+    Route::get('/', [
+        'as' => 'index',
+        'uses' => 'GeneralApiController@index'
+    ]);
+    Route::get('admin', [
+        'as' => 'admin',
+        'uses' => 'GeneralApiController@admin'
+    ]);
+    Route::get('user', [
+        'as' => 'user',
+        'uses' => 'GeneralApiController@user'
+    ]);
+    Route::get('events', [
+        'as' => 'events',
+        'uses' => 'GeneralApiController@events'
+    ]);
+
+
+    Route::group(['as' => 'client.','prefix' => 'clients'], function() {
+        Route::post('login', [
+            'as' => 'login',
+            'uses' => 'AuthApiController@loginClient'
+        ]);
+        Route::post('register', [
+            'as' => 'register',
+            'uses' => 'AuthApiController@registerClient'
+        ]);
+        Route::group(['middleware' => 'auth:clients'], function(){
+            Route::get('products', 'GeneralApiController@showProducts')->name('productsClient');
+        });
     });
+
+    Route::group(['as' => '.','prefix' => 'dealers'], function() {
+        Route::post('login', [
+            'as' => 'login',
+            'uses' => 'AuthApiController@loginDistributor'
+        ]);
+        Route::post('routes', [
+            'as' => 'routes',
+            'uses' => 'DealerApiController@getRoute'
+        ]);
+        Route::get('products', [
+            'as' => 'products',
+            'uses' => 'GeneralApiController@showProducts'
+        ]);
+        Route::group(['middleware' => 'auth:dealers'], function(){
+        });
+    });
+
 });
