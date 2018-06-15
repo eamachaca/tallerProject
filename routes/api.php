@@ -42,11 +42,14 @@ Route::group(['as' => 'api.','namespace'=>'API'], function() {
             'uses' => 'AuthApiController@registerClient'
         ]);
         Route::group(['middleware' => 'auth:clients'], function(){
-            Route::get('products', 'GeneralApiController@showProducts')->name('productsClient');
+            Route::get('products', [
+                'as' => 'products',
+                'uses' => 'GeneralApiController@showProducts'
+            ]);
         });
     });
 
-    Route::group(['as' => '.','prefix' => 'dealers'], function() {
+    Route::group(['as' => 'dealers.','prefix' => 'dealers'], function() {
         Route::post('login', [
             'as' => 'login',
             'uses' => 'AuthApiController@loginDistributor'
@@ -58,6 +61,14 @@ Route::group(['as' => 'api.','namespace'=>'API'], function() {
         Route::get('products', [
             'as' => 'products',
             'uses' => 'GeneralApiController@showProducts'
+        ]);
+        Route::post('update', [
+            'as' => 'update',
+            'uses' => 'DealerApiController@updateState'
+        ]);
+        Route::post('tracking', [
+            'as' => 'tracking',
+            'uses' => 'DealerApiController@tracking'
         ]);
         Route::group(['middleware' => 'auth:dealers'], function(){
         });

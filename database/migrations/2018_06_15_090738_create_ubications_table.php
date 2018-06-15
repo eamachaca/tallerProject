@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFillDistributorsTable extends Migration
+class CreateUbicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateFillDistributorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fill_distributors', function (Blueprint $table) {
+        Schema::create('ubications', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quantity');
-            $table->boolean('entry')->default(false);
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')
-                ->references('id')
-                ->on('products')
-                ->onDelete('cascade');
+            $table->float('lat',11,8);
+            $table->float('lng',11,8);
             $table->integer('distributor_id')->unsigned();
             $table->foreign('distributor_id')
                 ->references('id')
@@ -38,6 +33,6 @@ class CreateFillDistributorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fill_distributors');
+        Schema::dropIfExists('ubications');
     }
 }
