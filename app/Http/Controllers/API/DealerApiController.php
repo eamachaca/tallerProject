@@ -12,6 +12,10 @@ use Illuminate\Http\Response;
 
 class DealerApiController extends Controller
 {
+    public function index()
+    {
+        return \response()->json(Distributor::all(), Response::HTTP_ACCEPTED);
+    }
     private function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 
         $theta = $lon1 - $lon2;

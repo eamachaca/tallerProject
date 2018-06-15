@@ -33,6 +33,10 @@ Route::group(['as' => 'api.','namespace'=>'API'], function() {
 
 
     Route::group(['as' => 'client.','prefix' => 'clients'], function() {
+        Route::get('/', [
+            'as' => 'index',
+            'uses' => 'ClientApiController@index'
+        ]);
         Route::post('login', [
             'as' => 'login',
             'uses' => 'AuthApiController@loginClient'
@@ -50,6 +54,10 @@ Route::group(['as' => 'api.','namespace'=>'API'], function() {
     });
 
     Route::group(['as' => 'dealers.','prefix' => 'dealers'], function() {
+        Route::get('/', [
+            'as' => 'index',
+            'uses' => 'DealerApiController@index'
+        ]);
         Route::post('login', [
             'as' => 'login',
             'uses' => 'AuthApiController@loginDistributor'
