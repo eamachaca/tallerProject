@@ -54,23 +54,23 @@ Route::group(['as' => 'api.','namespace'=>'API'], function() {
             'as' => 'login',
             'uses' => 'AuthApiController@loginDistributor'
         ]);
-        Route::post('routes', [
-            'as' => 'routes',
-            'uses' => 'DealerApiController@getRoute'
-        ]);
-        Route::get('products', [
-            'as' => 'products',
-            'uses' => 'GeneralApiController@showProducts'
-        ]);
-        Route::post('update', [
-            'as' => 'update',
-            'uses' => 'DealerApiController@updateState'
-        ]);
-        Route::post('tracking', [
-            'as' => 'tracking',
-            'uses' => 'DealerApiController@tracking'
-        ]);
         Route::group(['middleware' => 'auth:dealers'], function(){
+            Route::post('routes', [
+                'as' => 'routes',
+                'uses' => 'DealerApiController@getRoute'
+            ]);
+            Route::get('products', [
+                'as' => 'products',
+                'uses' => 'GeneralApiController@showProducts'
+            ]);
+            Route::post('update', [
+                'as' => 'update',
+                'uses' => 'DealerApiController@updateState'
+            ]);
+            Route::post('tracking', [
+                'as' => 'tracking',
+                'uses' => 'DealerApiController@tracking'
+            ]);
         });
     });
 
