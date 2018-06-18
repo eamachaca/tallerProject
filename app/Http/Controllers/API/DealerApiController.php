@@ -44,7 +44,7 @@ class DealerApiController extends Controller
         $distributor =  $request->user();
         $orders = Order::where('zone_id', $distributor->zone->id)->where('state',0)->get();
         $results= collect();
-        $products=json_decode($request->get('carga'));
+        $products=$request->get('carga');
         foreach ($products as $product){
             FillDistributor::create([
                 'quantity'=> $product->cantidad,

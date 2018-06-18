@@ -23,6 +23,7 @@ class DistributorSeeder extends Seeder
                     'zone_id'=>\App\Zone::all()->random()->id,
                 ]);
             } catch (\Exception $e) {
+                $i -= 1;
             }
         }
     }
