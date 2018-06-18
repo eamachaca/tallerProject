@@ -47,8 +47,8 @@ class DealerApiController extends Controller
         $products=$request->get('carga');
         foreach ($products as $product){
             FillDistributor::create([
-                'quantity'=> $product[cantidad],
-                'product_id'=> $product[product_id],
+                'quantity'=> $product['cantidad'],
+                'product_id'=> $product['product_id'],
                 'distributor_id'=>$distributor->id
             ]);
         }
